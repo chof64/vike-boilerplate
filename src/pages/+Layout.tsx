@@ -2,11 +2,11 @@ import "./Layout.css";
 
 import "./tailwind.css";
 import logoUrl from "../assets/logo.svg";
-import { Link } from "../components/Link";
+import { Link } from "../components/link";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={"flex max-w-5xl m-auto"}>
+    <div className={"m-auto flex max-w-5xl"}>
       <Sidebar>
         <Logo />
         <Link href="/">Welcome</Link>
@@ -20,7 +20,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 function Sidebar({ children }: { children: React.ReactNode }) {
   return (
-    <div id="sidebar" className={"p-5 flex flex-col shrink-0 border-r-2 border-r-gray-200"}>
+    <div
+      className={"flex shrink-0 flex-col border-r-2 border-r-gray-200 p-5"}
+      id="sidebar"
+    >
       {children}
     </div>
   );
@@ -29,7 +32,7 @@ function Sidebar({ children }: { children: React.ReactNode }) {
 function Content({ children }: { children: React.ReactNode }) {
   return (
     <div id="page-container">
-      <div id="page-content" className={"p-5 pb-12 min-h-screen"}>
+      <div className={"min-h-screen p-5 pb-12"} id="page-content">
         {children}
       </div>
     </div>
@@ -38,9 +41,9 @@ function Content({ children }: { children: React.ReactNode }) {
 
 function Logo() {
   return (
-    <div className={"p-5 mb-2"}>
+    <div className={"mb-2 p-5"}>
       <a href="/">
-        <img src={logoUrl} height={64} width={64} alt="logo" />
+        <img alt="logo" height={64} src={logoUrl} width={64} />
       </a>
     </div>
   );

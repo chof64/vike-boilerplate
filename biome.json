@@ -26,11 +26,7 @@
           "level": "warn",
           "fix": "safe",
           "options": {
-            "functions": [
-              "clsx",
-              "cva",
-              "cn"
-            ]
+            "functions": ["clsx", "cva", "cn"]
           }
         }
       }
@@ -38,19 +34,14 @@
   },
   "overrides": [
     {
-      "includes": [
-        "src/pages/**/*"
-      ],
+      "includes": ["src/pages/**/*"],
       "linter": {
         "rules": {
           "style": {
             "useFilenamingConvention": {
               "level": "warn",
               "options": {
-                "filenameCases": [
-                  "PascalCase",
-                  "kebab-case"
-                ]
+                "filenameCases": ["PascalCase", "camelCase", "kebab-case"]
               }
             }
           }
@@ -58,9 +49,7 @@
       }
     },
     {
-      "includes": [
-        "**/*.css"
-      ],
+      "includes": ["**/*.css"],
       "linter": {
         "rules": {
           "suspicious": {
@@ -70,9 +59,7 @@
       }
     },
     {
-      "includes": [
-        "convex/**/*"
-      ],
+      "includes": ["convex/**/*"],
       "linter": {
         "rules": {
           "style": {
@@ -82,8 +69,5 @@
       }
     }
   ],
-  "extends": [
-    "ultracite/biome/core",
-    "ultracite/biome/react"
-  ]
+  "extends": ["ultracite/biome/core", "ultracite/biome/react"]
 }
