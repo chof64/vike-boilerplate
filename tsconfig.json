@@ -1,25 +1,47 @@
 {
   "compilerOptions": {
+    /* --- Modern & T3 Strictness --- */
+    "allowJs": true,
+    "checkJs": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
     "strict": true,
     "target": "ES2022",
-    "module": "ES2022",
-    "moduleResolution": "Bundler",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
-    "types": [
-      "vite/client",
-      "vike-react"
-    ],
-    "noEmit": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
+
+    /* --- React & JSX --- */
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+
+    /* --- Vike & Vite Specifics --- */
+    "resolveJsonModule": true,
+    "types": ["vite/client", "vike-react"],
+
+    /* --- Path Aliases --- */
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "~/convex/*": ["./convex/*"]
+    },
+
+    /* --- Performance --- */
+    "incremental": true
   },
-  "exclude": [
-    "dist"
-  ]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.cjs",
+    "**/*.mjs",
+    "src/**/*",
+    "pages/**/*"
+  ],
+  "exclude": ["node_modules", "dist", ".next", "out"]
 }

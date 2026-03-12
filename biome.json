@@ -1,14 +1,58 @@
 {
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "linter": {
+    "domains": {
+      "react": "recommended"
+    },
+    "rules": {
+      "style": {
+        "noMagicNumbers": "off"
+      },
+      "performance": {
+        "noBarrelFile": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "warn",
+          "fix": "safe",
+          "options": {
+            "functions": [
+              "clsx",
+              "cva",
+              "cn"
+            ]
+          }
+        }
+      }
+    }
+  },
   "overrides": [
     {
       "includes": [
-        "**/+data.ts",
-        "**/+data.js"
+        "src/pages/**/*"
       ],
       "linter": {
         "rules": {
-          "correctness": {
-            "useHookAtTopLevel": "off"
+          "style": {
+            "useFilenamingConvention": {
+              "level": "warn",
+              "options": {
+                "filenameCases": [
+                  "PascalCase",
+                  "kebab-case"
+                ]
+              }
+            }
           }
         }
       }
@@ -24,42 +68,22 @@
           }
         }
       }
+    },
+    {
+      "includes": [
+        "convex/**/*"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": "off"
+          }
+        }
+      }
     }
   ],
-  "css": {
-    "parser": {
-      "tailwindDirectives": true
-    }
-  },
-  "files": {
-    "includes": [
-      "**",
-      "!*.cjs",
-      "!*.js",
-      "!*.mjs",
-      "!*.spec.ts",
-      "!**/*.ts.build-*.mjs",
-      "!dist/*",
-      "!node_modules/*",
-      "!**/.DS_Store"
-    ]
-  },
-  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "formatter": {
-    "indentStyle": "space"
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    },
-    "domains": {
-      "react": "recommended"
-    }
-  },
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  }
+  "extends": [
+    "ultracite/biome/core",
+    "ultracite/biome/react"
+  ]
 }

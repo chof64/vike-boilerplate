@@ -1,10 +1,15 @@
 {
+  "name": "vike-boilerplate",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vike dev",
     "build": "vike build",
     "preview": "vike build && vike preview",
-    "lint": "biome lint --write .",
-    "format": "biome format --write ."
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "check:unsafe": "biome check --write --unsafe ."
   },
   "dependencies": {
     "react": "^19.2.4",
@@ -13,14 +18,19 @@
     "vike-react": "^0.6.21"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.6",
+    "@biomejs/biome": "2.4.5",
     "@tailwindcss/vite": "^4.2.1",
+    "@types/node": "^25.4.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3",
+    "ultracite": "7.2.5",
     "vite": "^7.3.1"
   },
-  "type": "module"
+  "packageManager": "pnpm@10.27.0",
+  "engines": {
+    "node": ">=22"
+  }
 }
