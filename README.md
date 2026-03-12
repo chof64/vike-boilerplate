@@ -4,11 +4,11 @@ Generated with vike.dev/new. This repository is a minimal Vike starter using Rea
 
 Important: this boilerplate is configured as a static client-side application — prerender: true and ssr: false. Pages are prerendered at build time and the app runs on the client (no server-side rendering).
 
-Prerequisites
+## Prerequisites
 - Node >= 22
 - pnpm (project declares pnpm as packageManager; install via npm i -g pnpm if needed)
 
-Quick start
+## Quick start
 
 1. Install dependencies
 
@@ -34,7 +34,7 @@ pnpm build
 pnpm preview
 ```
 
-Available scripts (from package.json)
+## Available scripts (from package.json)
 
 - pnpm dev — start development server (vike dev)
 - pnpm build — build production output (vike build)
@@ -43,7 +43,7 @@ Available scripts (from package.json)
 - pnpm run check:write — run Biome and auto-fix
 - pnpm run check:unsafe — run Biome with --unsafe fixes
 
-Core technologies and files
+## Core technologies and files
 
 - Vike: routing and app framework (see src/pages for + files)
 - React: UI library (react, react-dom)
@@ -52,7 +52,7 @@ Core technologies and files
 - pnpm: package manager (package.json declares pnpm@10.27.0)
 - Vite: dev server & bundler (vite.config.ts present and configured with the Vike and Tailwind plugins)
 
-Project structure (key files)
+## Project structure
 
 - package.json — scripts, dependencies, packageManager (pnpm)
 - vite.config.ts — Vite configuration (plugins: vike(), react(), @tailwindcss/vite)
@@ -63,7 +63,7 @@ Project structure (key files)
 - src/pages/globals.css — Global CSS; includes Tailwind directives
 - src/pages/local.css — Local styles imported by the layout
 
-Where prerender / ssr are set
+### Where prerender / ssr are set
 
 The repository enables prerendering and disables SSR in the Vike config file:
 
@@ -75,7 +75,7 @@ prerender: true,
 ssr: false,
 ```
 
-Routing and + files
+### Routing and + files
 
 - This starter uses Vike's filesystem routing. Add pages by creating folders in src/pages with a +Page.tsx file.
 - Common + files you can add or customize per-route:
@@ -88,22 +88,22 @@ Routing and + files
 
 Note: this starter includes +config.ts, +Page.tsx, and +Layout.tsx in src/pages. Several optional + files are not included by default (e.g. +data.ts, +Head.tsx, +onPageTransitionStart/End, and an /pages/_error page). Add them as needed.
 
-Tailwind CSS
+### Tailwind CSS
 
 - Tailwind is installed as a devDependency and imported from src/pages/globals.css (so you can use the @tailwind directives there).
 - There is no tailwind.config.* file in the starter — you can add one at the project root to customize your theme, plugins, or content paths.
 
-Biome (linting / formatting)
+### Biome (linting / formatting)
 
 - Biome is configured via biome.json at the repo root and integrated through npm scripts (pnpm run check, check:write).
 - Biome is set up to understand Tailwind directives in CSS.
 
-Deployment notes
+### Deployment notes
 
 - Because prerender: true and ssr: false this project builds into a static site. Use pnpm build to produce the production output and serve the generated files with any static host.
 - pnpm preview runs a preview server that serves the built output.
 
-Developer notes
+### Developer notes
 
 - Node engine requirement is declared in package.json (>=22).
 - Vite is configured (vite.config.ts) and uses the @tailwindcss/vite plugin for better Tailwind integration — you may still create a tailwind.config.js/cjs to customize Tailwind.
